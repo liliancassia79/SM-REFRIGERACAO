@@ -33,6 +33,7 @@ Desenvolvido por **Lilian C Sousa**
 
 - **Logo substituída:** agora o site utiliza `LOGOSMNOVA.png` como logotipo principal.
 - **Paleta sincronizada:** variáveis CSS em `styles.css` foram atualizadas para harmonizar com as cores do novo logo (tonalidade azul/roxo de fundo e ciano claro para destaques).
+- **UX Otimizada:** Formulários de "Solicitar Orçamento" e "Agendar Visita Técnica" foram unificados em um único modal de **Atendimento e Orçamentos**, simplificando a navegação e garantindo a captura correta de dados (Endereço, Serviços) com envio via FormSubmit.
 
 ## ▶️ Como visualizar localmente
 
@@ -43,6 +44,4 @@ Desenvolvido por **Lilian C Sousa**
 python3 -m http.server 8000
 ```
 
-3. Abra o navegador em `http://localhost:8000` para ver a página com a nova logo e esquema de cores.
-
-Se quiser que eu renomeie `LOGOSMNOVA.png` para `logo.png` (substituindo o arquivo antigo) ou adicionar uma versão otimizada (webp), posso fazer isso também.
+3. Abra o navegador em `http://localhost:8000` para testar.
