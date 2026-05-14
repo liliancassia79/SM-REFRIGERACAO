@@ -28,3 +28,21 @@ Desenvolvido por **Lilian C Sousa**
 
 ---
 *Este projeto é Open Source para fins de estudo e portfólio.*
+
+## 🔄 Atualizações Recentes
+
+- **Logo substituída:** agora o site utiliza `LOGOSMNOVA.png` como logotipo principal.
+- **Paleta sincronizada:** variáveis CSS em `styles.css` foram atualizadas para harmonizar com as cores do novo logo (tonalidade azul/roxo de fundo e ciano claro para destaques).
+
+## ▶️ Como visualizar localmente
+
+1. Abra um terminal na pasta `site1`.
+2. Inicie um servidor local simples (Python 3):
+
+```bash
+python3 -m http.server 8000
+```
+
+3. Abra o navegador em `http://localhost:8000` para ver a página com a nova logo e esquema de cores.
+
+Se quiser que eu renomeie `LOGOSMNOVA.png` para `logo.png` (substituindo o arquivo antigo) ou adicionar uma versão otimizada (webp), posso fazer isso também.

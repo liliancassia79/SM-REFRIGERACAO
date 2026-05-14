@@ -5,594 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lilian C Sousa">
     
-    <title>SM Refrigeração - Soluções em Climatização</title>
+    <title>SM REFRIGERAÇÃO - Soluções em Climatização</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* --- Variáveis e Reset --- */
-        :root {
-            --bg-dark: #020210;
-            --bg-card: #0a0a20;
-            --primary-blue: #000080; 
-            --neon-cyan: #00FFFF;
-            --text-white: #ffffff;
-            --text-gray: #b0b0d0;
-            --star-gold: #FFD700;
-            --alert-red: #ff3333;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Exo 2', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        a { text-decoration: none; transition: 0.3s; }
-        ul { list-style: none; }
-
-        /* --- Botão Neon Personalizado --- */
-        .btn-neon {
-            display: inline-block;
-            padding: 12px 30px;
-            color: var(--bg-dark);
-            background-color: var(--neon-cyan);
-            font-weight: 800;
-            text-transform: uppercase;
-            border: 2px solid var(--neon-cyan);
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            cursor: pointer;
-        }
-
-        .btn-neon:hover {
-            background-color: transparent;
-            color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-        }
-
-        /* --- Header Transparente --- */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 15px 0;
-            background: rgba(2, 2, 16, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo img { height: 60px; } /* Ajuste altura do logo aqui */
-
-        .nav-menu { display: flex; gap: 30px; }
-        
-        .nav-menu a {
-            color: var(--text-white);
-            font-weight: 600;
-            font-size: 0.9rem;
-            position: relative;
-        }
-
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--neon-cyan);
-            transition: 0.3s;
-        }
-
-        .nav-menu a:hover::before { width: 100%; }
-        .nav-menu a:hover { color: var(--neon-cyan); }
-
-        /* --- Hero Section Impactante --- */
-        .hero {
-            height: 100vh;
-            /* Imagem de fundo genérica de tecnologia/clima */
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,60,0.7)), url('https://images.unsplash.com/photo-1574974671999-563607f2df1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 0;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            padding: 40px;
-            background: rgba(0, 0, 20, 0.7);
-            backdrop-filter: blur(8px);
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--text-white);
-            line-height: 1.2;
-        }
-
-        .hero h1 span { color: var(--neon-cyan); }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-        }
-
-        /* --- MODAL (POPUP) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: flex-start;
-            padding-top: 50px;
-        }
-
-        .modal-content {
-            background-color: var(--bg-card);
-            margin: 0 auto 50px auto;
-            padding: 40px;
-            border: 2px solid var(--neon-cyan);
-            width: 90%;
-            max-width: 500px;
-            border-radius: 10px;
-            position: relative;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-            animation: modalFadeIn 0.3s;
-        }
-
-        @keyframes modalFadeIn {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        .close-btn {
-            color: #aaa;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 10;
-        }
-
-        .close-btn:hover { color: var(--neon-cyan); }
-
-        /* Estilos do Modal de Contato */
-        .modal-info { margin-top: 20px; }
-        .modal-item {
-            display: flex;
-            align-items: center;
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .modal-item:hover { background: rgba(0,255,255,0.1); }
-        .modal-item i {
-            font-size: 1.5rem;
-            color: var(--neon-cyan);
-            margin-right: 15px;
-        }
-        .modal-item a {
-            color: var(--text-white);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Estilos de Formulários */
-        .form-element {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        .form-element label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--neon-cyan);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .form-element input, 
-        .form-element textarea, 
-        .form-element select {
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 12px;
-            color: white;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-        .form-element input:focus, 
-        .form-element textarea:focus, 
-        .form-element select:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            background: rgba(0, 255, 255, 0.05);
-        }
-
-        /* --- Serviços --- */
-        .section-padding { padding: 80px 0; }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding: 0 20px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--text-white);
-            margin-bottom: 10px;
-        }
-        
-        .section-header .line {
-            width: 80px;
-            height: 4px;
-            background-color: var(--neon-cyan);
-            margin: 0 auto;
-            box-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--neon-cyan);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 { margin-bottom: 15px; }
-        .service-card p { color: var(--text-gray); font-size: 0.95rem; }
-
-        /* --- Banner Informativo --- */
-        .info-banner {
-            background-color: #000030;
-            padding: 60px 20px;
-            margin: 60px 0;
-            border-top: 1px solid var(--neon-cyan);
-            border-bottom: 1px solid var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
-        }
-
-        .info-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .info-item {
-            flex: 1;
-            min-width: 280px;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .info-item i {
-            font-size: 2.5rem;
-            color: var(--neon-cyan);
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-
-        .info-item h3 {
-            font-size: 1.2rem;
-            color: var(--text-white);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .info-item p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            max-width: 350px;
-            margin: 0 auto;
-        }
-
-        /* --- ANTES E DEPOIS (SUBSTITUI PROJETOS) --- */
-        .comparison-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .comparison-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 10px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .comparison-card h3 {
-            margin-bottom: 20px;
-            color: var(--text-white);
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-        }
-
-        .img-pair {
-            display: flex;
-            gap: 15px;
-        }
-
-        .img-box {
-            flex: 1;
-            position: relative;
-            height: 250px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.3s;
-        }
-        
-        /* Zoom leve ao passar o mouse */
-        .img-box:hover img { transform: scale(1.05); }
-
-        /* Etiquetas Antes/Depois */
-        .badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px 15px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            z-index: 2;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
-
-        .badge-before {
-            background-color: var(--alert-red);
-            color: white;
-        }
-
-        .badge-after {
-            background-color: var(--neon-cyan);
-            color: var(--bg-dark);
-        }
-
-        .comparison-desc {
-            margin-top: 20px;
-            text-align: center;
-            color: var(--text-gray);
-            font-size: 0.95rem;
-        }
-
-        .comparison-desc strong { color: var(--neon-cyan); }
-
-        /* --- AVALIAÇÕES --- */
-        .reviews-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .review-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 3px solid var(--neon-cyan);
-            position: relative;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .review-author {
-            font-weight: bold;
-            color: var(--text-white);
-            font-size: 1.1rem;
-        }
-
-        .stars { color: var(--star-gold); font-size: 0.9rem; }
-        
-        .review-text {
-            color: var(--text-gray);
-            font-style: italic;
-            font-size: 0.95rem;
-        }
-
-        .review-quote {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3rem;
-            color: rgba(255,255,255,0.05);
-            font-family: serif;
-        }
-
-        .btn-add-review {
-            display: block;
-            margin: 40px auto 0;
-            text-align: center;
-            width: fit-content;
-        }
-
-        /* --- Contato (Botão) --- */
-        .contact-btn-container {
-            text-align: center; 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 0 20px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #000;
-            border-top: 1px solid #111;
-            padding: 50px 0 30px;
-            text-align: center;
-            margin-top: 80px;
-            color: #666;
-        }
-        
-        .footer-location {
-            font-size: 1.1rem;
-            color: var(--text-white);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* --- WhatsApp Flutuante --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 2000;
-            transition: 0.3s;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #20ba5a;
-        }
-
-        /* --- Mobile Responsive --- */
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 0; left: 0;
-                width: 100%; height: 100vh;
-                background: var(--bg-dark);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transform: translateX(-100%);
-                transition: 0.3s;
-                z-index: 1002;
-            }
-            .nav-menu.active { transform: translateX(0); }
-            .menu-toggle { display: block; cursor: pointer; z-index: 1003; }
-            .hero h1 { font-size: 2.2rem; }
-            
-            /* Ajuste Antes e Depois Mobile */
-            .img-pair { flex-direction: column; }
-            .img-box { height: 200px; }
-            
-            .info-container { flex-direction: column; gap: 50px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="SM Refrigeração — Instalação, manutenção e projetos de refrigeração em Belém. Orçamento rápido e atendimento especializado.">
+    <meta property="og:title" content="SM REFRIGERAÇÃO - Soluções em Climatização">
+    <meta property="og:description" content="Instalação, manutenção e refrigeração comercial. Atendimento em Belém e Região.">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://seusite.com/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SM Refrigeração",
+      "telephone": "+5591983523998",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belém",
+        "addressRegion": "PA",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00"
+    }
+    </script>
 </head>
 <body>
 
-    <a href="https://wa.me/5591983523998" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5591983523998" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="linksModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="fecharModal('linksModal')">&times;</span>
-            <h2 style="color: var(--neon-cyan);">Canais de Atendimento</h2>
-            <p style="color: #ccc; margin-bottom: 20px;">Fale conosco agora:</p>
+    <div id="linksModal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" tabindex="-1">
+            <button class="close-btn" onclick="fecharModal('linksModal')" aria-label="Fechar">&times;</button>
+            <h2 class="modal-title">Atendimento e Orçamentos</h2>
+            <p class="modal-subtext">Fale conosco agora:</p>
             
             <div class="modal-info">
                 <div class="modal-item">
                     <i class="fab fa-whatsapp"></i>
-                    <a href="https://wa.me/5591983523998" target="_blank">WhatsApp: (91) 98352-3998</a>
+                    <a href="https://wa.me/5591983523998" target="_blank" rel="noopener noreferrer">WhatsApp: (91) 98352-3998</a>
                 </div>
                 <div class="modal-item">
                     <i class="fas fa-phone-alt"></i>
@@ -604,52 +58,57 @@
                 </div>
             </div>
             
-            <div style="margin-top: 20px; font-size: 0.8rem; color: #888;">
-                <p>Atendimento de Seg a Sex das 08h às 18h</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="formModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="fecharModal('formModal')">&times;</span>
-            <h2 style="color: var(--neon-cyan); margin-bottom: 20px;">Solicitar Orçamento</h2>
-            
-            <form onsubmit="event.preventDefault(); alert('Solicitação enviada! Entraremos em contato em breve.'); fecharModal('formModal');">
+            <form action="https://formsubmit.co/contato@smrefrigeracao.com" method="POST" class="contact-form" style="margin-top:18px;">
+                <input type="hidden" name="_subject" value="Solicitação pelo Site - SM Refrigeração">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://seusite.com/obrigado">
+                
                 <div class="form-element">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                    <label for="agendarNome">Nome Completo</label>
+                    <input type="text" id="agendarNome" name="nome" required placeholder="Seu nome completo">
+                </div>
+
+                <div class="form-element">
+                    <label for="agendarTelefone">WhatsApp / Telefone</label>
+                    <input type="tel" id="agendarTelefone" name="telefone" required placeholder="(91) 9xxxx-xxxx">
                 </div>
                 
                 <div class="form-element">
-                    <label for="telefone">WhatsApp / Telefone</label>
-                    <input type="tel" id="telefone" required placeholder="(91) 9xxxx-xxxx">
+                    <label for="agendarEndereco">Endereço Completo</label>
+                    <input type="text" id="agendarEndereco" name="endereco" required placeholder="Rua, número e bairro">
                 </div>
 
                 <div class="form-element">
-                    <label for="servico">Tipo de Serviço</label>
-                    <select id="servico" style="color: black;">
-                        <option value="instalacao">Instalação</option>
-                        <option value="manutencao">Manutenção/Limpeza</option>
-                        <option value="conserto">Conserto/Reparo</option>
+                    <label for="agendarServico">Tipo de Solicitação</label>
+                    <select id="agendarServico" name="servico" class="form-control">
+                        <option value="visita">Agendar Visita Técnica</option>
+                        <option value="instalacao">Orçamento - Instalação</option>
+                        <option value="manutencao">Orçamento - Manutenção/Limpeza</option>
+                        <option value="conserto">Orçamento - Conserto/Reparo</option>
                         <option value="comercial">Refrigeração Comercial</option>
                     </select>
                 </div>
 
                 <div class="form-element">
-                    <label for="mensagem">Detalhes (Opcional)</label>
-                    <textarea id="mensagem" rows="3" placeholder="Ex: Preciso instalar 2 Splits no centro de Belém..."></textarea>
+                    <label for="agendarMensagem">Mensagem / Detalhes (Opcional)</label>
+                    <textarea id="agendarMensagem" name="mensagem" rows="3" placeholder="Descreva o problema ou serviço..."></textarea>
                 </div>
 
-                <button type="submit" class="btn-neon" style="width: 100%; margin-top: 10px;">Enviar Pedido</button>
+                <button type="submit" class="btn-neon full-width">Enviar Solicitação</button>
             </form>
+            
+            <div class="small-muted">
+                <p>Atendimento de Seg a Sex das 08h às 18h</p>
+            </div>
         </div>
     </div>
 
-    <div id="reviewModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="fecharModal('reviewModal')">&times;</span>
-            <h2 style="color: var(--neon-cyan); margin-bottom: 20px;">Avalie nosso Serviço</h2>
+
+
+    <div id="reviewModal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" tabindex="-1">
+            <button class="close-btn" onclick="fecharModal('reviewModal')" aria-label="Fechar">&times;</button>
+            <h2 class="modal-title">Avalie nosso Serviço</h2>
             
             <form id="formAvaliacao">
                 <div class="form-element">
@@ -659,7 +118,7 @@
                 
                 <div class="form-element">
                     <label for="reviewEstrelas">Nota</label>
-                    <select id="reviewEstrelas" style="color: black;">
+                    <select id="reviewEstrelas" class="form-control">
                         <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
                         <option value="4">⭐⭐⭐⭐ (Muito Bom)</option>
                         <option value="3">⭐⭐⭐ (Bom)</option>
@@ -673,7 +132,7 @@
                     <textarea id="reviewTexto" rows="3" required placeholder="Conte como foi sua experiência..."></textarea>
                 </div>
 
-                <button type="submit" class="btn-neon" style="width: 100%; margin-top: 10px;">Publicar Avaliação</button>
+                <button type="submit" class="btn-neon full-width">Publicar Avaliação</button>
             </form>
         </div>
     </div>
@@ -681,12 +140,12 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img src="logo.png" alt="SM Refrigeração">
+                <img src="LOGOSMNOVA.png" alt="SM Refrigeração">
             </div>
             
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
 
             <ul class="nav-menu" id="nav-list">
                 <li><a href="#hero">INÍCIO</a></li>
@@ -702,7 +161,7 @@
         <div class="hero-content">
             <h1>Climatização <br> <span>Inteligente & Eficiente</span></h1>
             <p>Especialistas em instalação, manutenção e projetos de refrigeração. Tecnologia de ponta para o seu conforto térmico em Belém e Região.</p>
-            <a onclick="abrirModal('linksModal')" class="btn-neon">Agendar Visita Técnica</a>
+            <a onclick="abrirModal('linksModal')" class="btn-neon btn-blink">Agendar Visita Técnica</a>
         </div>
     </section>
 
@@ -767,11 +226,17 @@
                 <div class="img-pair">
                     <div class="img-box">
                         <span class="badge badge-before">Antes</span>
-                        <img src="https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ar condicionado sujo">
+                            <img src="https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                srcset="https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80 1200w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Ar condicionado sujo" loading="lazy" decoding="async">
                     </div>
                     <div class="img-box">
                         <span class="badge badge-after">Depois</span>
-                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ar condicionado limpo">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                srcset="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80 1200w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Ar condicionado limpo" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <p class="comparison-desc">
@@ -785,11 +250,17 @@
                 <div class="img-pair">
                     <div class="img-box">
                         <span class="badge badge-before">Antes</span>
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Serpentina obstruída">
+                            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                srcset="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80 1200w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Serpentina obstruída" loading="lazy" decoding="async">
                     </div>
                     <div class="img-box">
                         <span class="badge badge-after">Depois</span>
-                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Serpentina limpa">
+                            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                srcset="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80 1200w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Serpentina limpa" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <p class="comparison-desc">
@@ -853,11 +324,11 @@
         </div>
 
         <div class="contact-btn-container">
-            <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 40px;">
+            <p class="contact-para">
                 Não sofra com o calor. Solicite seu orçamento sem compromisso e garanta o melhor clima para sua casa ou empresa.
             </p>
             
-            <a onclick="abrirModal('formModal')" class="btn-neon" style="font-size: 1.2rem; padding: 15px 40px;">
+            <a onclick="abrirModal('linksModal')" class="btn-neon hero-cta">
                 Pedir Orçamento Agora
             </a>
         </div>
@@ -866,7 +337,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-location">
-                <i class="fas fa-map-marker-alt" style="color: var(--neon-cyan);"></i>
+                <i class="fas fa-map-marker-alt"></i>
                 <span style="font-weight: 700; letter-spacing: 2px;">BELÉM - PARÁ - BRASIL</span>
             </div>
             <p>&copy; 2023 SM Refrigeração. Todos os direitos reservados.</p>
@@ -874,87 +345,111 @@
     </footer>
 
     <script>
-        // Funções de Modal (Abrir/Fechar)
+        // Funções de Modal (Abrir/Fechar) com melhorias de acessibilidade
         function abrirModal(modalId) {
-            document.getElementById(modalId).style.display = "flex";
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.style.display = "flex";
+            modal.setAttribute('aria-hidden', 'false');
+            const focusable = modal.querySelector('input, button, textarea, select, [tabindex]');
+            if (focusable) focusable.focus();
         }
 
         function fecharModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.style.display = "none";
+            modal.setAttribute('aria-hidden', 'true');
         }
 
         // Fechar ao clicar fora do modal
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
+        window.addEventListener('click', function(event) {
+            if (event.target.classList && event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
+                event.target.setAttribute('aria-hidden', 'true');
             }
-        }
+        });
 
-        // Menu Mobile (Hambúrguer)
+        // Fechar modal com Escape
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(m => {
+                    if (m.style.display === 'flex') {
+                        m.style.display = 'none';
+                        m.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        });
+
+        // Menu Mobile (Hambúrguer) — mais seguro para casos em que o elemento não exista
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         const navLinks = document.querySelectorAll('.nav-menu a');
 
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            // Alterna ícone entre Barras e X
-            if (navList.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+        if (menuToggle && navList) {
+            menuToggle.addEventListener('click', () => {
+                const icon = menuToggle.querySelector('i');
+                navList.classList.toggle('active');
+                const expanded = navList.classList.contains('active');
+                menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                if (icon) {
+                    if (expanded) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        }
 
         // Fecha o menu ao clicar em um link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-                menuToggle.querySelector('i').classList.add('fa-bars');
+        if (navLinks && menuToggle && navList) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+                });
             });
-        });
+        }
 
-        // Lógica de Adicionar Avaliação (Front-end apenas)
-        document.getElementById('formAvaliacao').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede recarregamento da página
+        // Lógica de Adicionar Avaliação (Front-end apenas) — com verificação de existência
+        const formAvaliacao = document.getElementById('formAvaliacao');
+        if (formAvaliacao) {
+            formAvaliacao.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            // Captura dados
-            const nome = document.getElementById('reviewNome').value;
-            const estrelas = document.getElementById('reviewEstrelas').value;
-            const texto = document.getElementById('reviewTexto').value;
+                const nome = document.getElementById('reviewNome').value;
+                const estrelas = document.getElementById('reviewEstrelas').value;
+                const texto = document.getElementById('reviewTexto').value;
 
-            // Gera HTML das estrelas
-            let estrelasHTML = '';
-            for(let i=0; i<estrelas; i++) {
-                estrelasHTML += '<i class="fas fa-star"></i>';
-            }
-            // Adiciona meia estrela ou vazias se quiser complexidade, aqui simplificado
+                let estrelasHTML = '';
+                for(let i=0; i<estrelas; i++) { estrelasHTML += '<i class="fas fa-star"></i>'; }
 
-            // Cria novo elemento
-            const novoCard = document.createElement('div');
-            novoCard.className = 'review-card';
-            novoCard.style.animation = "modalFadeIn 0.5s"; // Efeito de entrada
-            novoCard.innerHTML = `
-                <i class="fas fa-quote-right review-quote"></i>
-                <div class="review-header">
-                    <span class="review-author">${nome}</span>
-                    <div class="stars">${estrelasHTML}</div>
-                </div>
-                <p class="review-text">"${texto}"</p>
-            `;
+                const novoCard = document.createElement('div');
+                novoCard.className = 'review-card';
+                novoCard.style.animation = "modalFadeIn 0.5s";
+                novoCard.innerHTML = `
+                    <i class="fas fa-quote-right review-quote"></i>
+                    <div class="review-header">
+                        <span class="review-author">${nome}</span>
+                        <div class="stars">${estrelasHTML}</div>
+                    </div>
+                    <p class="review-text">"${texto}"</p>
+                `;
 
-            // Insere no início da lista
-            const container = document.getElementById('reviewsContainer');
-            container.insertBefore(novoCard, container.firstChild);
+                const container = document.getElementById('reviewsContainer');
+                if (container) container.insertBefore(novoCard, container.firstChild);
 
-            // Limpa e fecha
-            document.getElementById('formAvaliacao').reset();
-            fecharModal('reviewModal');
-            alert('Obrigado! Sua avaliação foi publicada.');
-        });
+                formAvaliacao.reset();
+                fecharModal('reviewModal');
+                alert('Obrigado! Sua avaliação foi publicada.');
+            });
+        }
     </script>
 </body>
 </html>
