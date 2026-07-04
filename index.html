@@ -1,12 +1,455 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=site1/index.html" />
-    <title>SM Refrigeração</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lilian C Sousa">
+    
+    <title>SM REFRIGERAÇÃO - Soluções em Climatização</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site1/styles.css">
+    <meta name="description" content="SM Refrigeração — Instalação, manutenção e projetos de refrigeração em Belém. Orçamento rápido e atendimento especializado.">
+    <meta property="og:title" content="SM REFRIGERAÇÃO - Soluções em Climatização">
+    <meta property="og:description" content="Instalação, manutenção e refrigeração comercial. Atendimento em Belém e Região.">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://seusite.com/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SM Refrigeração",
+      "telephone": "+5591983523998",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belém",
+        "addressRegion": "PA",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00"
+    }
+    </script>
 </head>
 <body>
-    <p>Redirecionando para o site...</p>
-    <a href="site1/index.html">Clique aqui se não for redirecionado automaticamente</a>
+
+    <a href="https://wa.me/5591983523998" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="linksModal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" tabindex="-1">
+            <button class="close-btn" onclick="fecharModal('linksModal')" aria-label="Fechar">&times;</button>
+            <h2 class="modal-title">Atendimento e Orçamentos</h2>
+            <p class="modal-subtext">Fale conosco agora:</p>
+            
+            <div class="modal-info">
+                <div class="modal-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/5591983523998" target="_blank" rel="noopener noreferrer">WhatsApp: (91) 98352-3998</a>
+                </div>
+                <div class="modal-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:5591983523998">Ligar: (91) 98352-3998</a>
+                </div>
+                <div class="modal-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contato@smrefrigeracao.com">Email Oficial</a>
+                </div>
+            </div>
+            
+            <form action="https://formsubmit.co/contato@smrefrigeracao.com" method="POST" class="contact-form" style="margin-top:18px;">
+                <input type="hidden" name="_subject" value="Solicitação pelo Site - SM Refrigeração">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://seusite.com/obrigado">
+                
+                <div class="form-element">
+                    <label for="agendarNome">Nome Completo</label>
+                    <input type="text" id="agendarNome" name="nome" required placeholder="Seu nome completo">
+                </div>
+
+                <div class="form-element">
+                    <label for="agendarTelefone">WhatsApp / Telefone</label>
+                    <input type="tel" id="agendarTelefone" name="telefone" required placeholder="(91) 9xxxx-xxxx">
+                </div>
+                
+                <div class="form-element">
+                    <label for="agendarEndereco">Endereço Completo</label>
+                    <input type="text" id="agendarEndereco" name="endereco" required placeholder="Rua, número e bairro">
+                </div>
+
+                <div class="form-element">
+                    <label for="agendarServico">Tipo de Solicitação</label>
+                    <select id="agendarServico" name="servico" class="form-control">
+                        <option value="visita">Agendar Visita Técnica</option>
+                        <option value="instalacao">Orçamento - Instalação</option>
+                        <option value="manutencao">Orçamento - Manutenção/Limpeza</option>
+                        <option value="conserto">Orçamento - Conserto/Reparo</option>
+                        <option value="comercial">Refrigeração Comercial</option>
+                    </select>
+                </div>
+
+                <div class="form-element">
+                    <label for="agendarMensagem">Mensagem / Detalhes (Opcional)</label>
+                    <textarea id="agendarMensagem" name="mensagem" rows="3" placeholder="Descreva o problema ou serviço..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-neon full-width">Enviar Solicitação</button>
+            </form>
+            
+            <div class="small-muted">
+                <p>Atendimento de Seg a Sex das 08h às 18h</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="reviewModal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" tabindex="-1">
+            <button class="close-btn" onclick="fecharModal('reviewModal')" aria-label="Fechar">&times;</button>
+            <h2 class="modal-title">Avalie nosso Serviço</h2>
+            
+            <form id="formAvaliacao">
+                <div class="form-element">
+                    <label for="reviewNome">Seu Nome</label>
+                    <input type="text" id="reviewNome" required placeholder="Como quer ser identificado">
+                </div>
+                
+                <div class="form-element">
+                    <label for="reviewEstrelas">Nota</label>
+                    <select id="reviewEstrelas" class="form-control">
+                        <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
+                        <option value="4">⭐⭐⭐⭐ (Muito Bom)</option>
+                        <option value="3">⭐⭐⭐ (Bom)</option>
+                        <option value="2">⭐⭐ (Regular)</option>
+                        <option value="1">⭐ (Ruim)</option>
+                    </select>
+                </div>
+
+                <div class="form-element">
+                    <label for="reviewTexto">Comentário</label>
+                    <textarea id="reviewTexto" rows="3" required placeholder="Conte como foi sua experiência..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-neon full-width">Publicar Avaliação</button>
+            </form>
+        </div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="site1/LOGOSMNOVA.png" alt="SM Refrigeração">
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-list">
+                <li><a href="#hero">INÍCIO</a></li>
+                <li><a href="#servicos">SERVIÇOS</a></li>
+                <li><a href="#resultados">RESULTADOS</a></li>
+                <li><a href="#avaliacoes">CLIENTES</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Climatização <br> <span>Inteligente & Eficiente</span></h1>
+            <p>Especialistas em instalação, manutenção e projetos de refrigeração. Tecnologia de ponta para o seu conforto térmico em Belém e Região.</p>
+            <a onclick="abrirModal('linksModal')" class="btn-neon btn-blink">Agendar Visita Técnica</a>
+        </div>
+    </section>
+
+    <section id="servicos" class="section-padding">
+        <div class="section-header">
+            <h2>Nossas Soluções</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-wind service-icon"></i>
+                <h3>Instalação Split & VRF</h3>
+                <p>Instalação técnica seguindo rigorosos padrões de qualidade dos fabricantes. Preservamos a garantia do seu aparelho.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools service-icon"></i>
+                <h3>Manutenção Preventiva</h3>
+                <p>Limpeza profunda química e mecânica. Aumente a vida útil do seu equipamento e reduza a conta de energia.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-temperature-low service-icon"></i>
+                <h3>Refrigeração Comercial</h3>
+                <p>Câmaras frias, balcões e sistemas centrais para mercados, açougues e indústrias. Plantão técnico.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-banner">
+        <div class="info-container">
+            <div class="info-item">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Planejamento Técnico</h3>
+                <p>Dimensionamento correto para evitar sobrecarga elétrica e custos desnecessários.</p>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-shield-virus"></i>
+                <h3>Saúde e Ar Puro</h3>
+                <p>Eliminação de fungos e bactérias que causam doenças respiratórias.</p>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-bolt"></i>
+                <h3>Economia de Energia</h3>
+                <p>Ar-condicionado limpo gasta até 30% menos energia elétrica.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados" class="section-padding">
+        <div class="section-header">
+            <h2>Resultados Reais</h2>
+            <p style="color: #aaa; margin-top: 10px;">Veja a diferença que nossa manutenção faz</p>
+            <div class="line"></div>
+        </div>
+        
+        <div class="comparison-wrapper">
+            
+            <div class="comparison-card">
+                <h3>Higienização Profunda - Split 12.000 BTUs</h3>
+                <div class="img-pair">
+                    <div class="img-box">
+                        <span class="badge badge-before">Antes</span>
+                            <img src="https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                srcset="https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1533749047139-189de3cf06d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80 600w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Ar condicionado sujo" loading="lazy" decoding="async">
+                    </div>
+                    <div class="img-box">
+                        <span class="badge badge-after">Depois</span>
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                srcset="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80 600w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Ar condicionado limpo" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <p class="comparison-desc">
+                    Remoção total de fungos e poeira acumulada na turbina. <br>
+                    <strong>Resultado:</strong> Ar puro, sem cheiro de mofo e redução de ruídos.
+                </p>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Recuperação de Sistema Comercial</h3>
+                <div class="img-pair">
+                    <div class="img-box">
+                        <span class="badge badge-before">Antes</span>
+                            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                srcset="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80 600w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Serpentina obstruída" loading="lazy" decoding="async">
+                    </div>
+                    <div class="img-box">
+                        <span class="badge badge-after">Depois</span>
+                            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                srcset="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80 600w"
+                                sizes="(max-width:600px) 100vw, 50vw"
+                                alt="Serpentina limpa" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <p class="comparison-desc">
+                    Desobstrução completa da serpentina condensadora com jato químico. <br>
+                    <strong>Resultado:</strong> Equipamento voltou a gelar rápido e economizou energia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="avaliacoes" class="section-padding" style="background-color: #050515;">
+        <div class="section-header">
+            <h2>O Que Dizem Nossos Clientes</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="reviews-wrapper" id="reviewsContainer">
+            <div class="review-card">
+                <i class="fas fa-quote-right review-quote"></i>
+                <div class="review-header">
+                    <span class="review-author">Carlos Eduardo</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Serviço impecável! A equipe da SM chegou no horário combinado, instalou os dois splits e deixou tudo limpo. Recomendo muito."</p>
+            </div>
+
+            <div class="review-card">
+                <i class="fas fa-quote-right review-quote"></i>
+                <div class="review-header">
+                    <span class="review-author">Mariana Lopes</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Fiz a limpeza dos ares da minha loja aqui em Belém e senti a diferença na conta de luz imediatamente. Profissionais de verdade."</p>
+            </div>
+            
+            <div class="review-card">
+                <i class="fas fa-quote-right review-quote"></i>
+                <div class="review-header">
+                    <span class="review-author">Roberto Silva</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">"Melhor empresa de refrigeração que já contratei. O técnico explicou tudo sobre o funcionamento. Nota 10!"</p>
+            </div>
+        </div>
+
+        <div class="contact-btn-container">
+            <a onclick="abrirModal('reviewModal')" class="btn-neon btn-add-review">Deixar uma Avaliação</a>
+        </div>
+    </section>
+
+    <section id="contato" class="section-padding">
+        <div class="section-header">
+            <h2>Vamos conversar?</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="contact-btn-container">
+            <p class="contact-para">
+                Não sofra com o calor. Solicite seu orçamento sem compromisso e garanta o melhor clima para sua casa ou empresa.
+            </p>
+            
+            <a onclick="abrirModal('linksModal')" class="btn-neon hero-cta">
+                Pedir Orçamento Agora
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span style="font-weight: 700; letter-spacing: 2px;">BELÉM - PARÁ - BRASIL</span>
+            </div>
+            <p>&copy; 2023 SM Refrigeração. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funções de Modal (Abrir/Fechar) com melhorias de acessibilidade
+        function abrirModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.style.display = "flex";
+            modal.setAttribute('aria-hidden', 'false');
+            const focusable = modal.querySelector('input, button, textarea, select, [tabindex]');
+            if (focusable) focusable.focus();
+        }
+
+        function fecharModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.style.display = "none";
+            modal.setAttribute('aria-hidden', 'true');
+        }
+
+        // Fechar ao clicar fora do modal
+        window.addEventListener('click', function(event) {
+            if (event.target.classList && event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                event.target.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // Fechar modal com Escape
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(m => {
+                    if (m.style.display === 'flex') {
+                        m.style.display = 'none';
+                        m.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            }
+        });
+
+        // Menu Mobile (Hambúrguer) — mais seguro para casos em que o elemento não exista
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        if (menuToggle && navList) {
+            menuToggle.addEventListener('click', () => {
+                const icon = menuToggle.querySelector('i');
+                navList.classList.toggle('active');
+                const expanded = navList.classList.contains('active');
+                menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                if (icon) {
+                    if (expanded) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        }
+
+        // Fecha o menu ao clicar em um link
+        if (navLinks && menuToggle && navList) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navList.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+                });
+            });
+        }
+
+        // Lógica de Adicionar Avaliação (Front-end apenas) — com verificação de existência
+        const formAvaliacao = document.getElementById('formAvaliacao');
+        if (formAvaliacao) {
+            formAvaliacao.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const nome = document.getElementById('reviewNome').value;
+                const estrelas = document.getElementById('reviewEstrelas').value;
+                const texto = document.getElementById('reviewTexto').value;
+
+                let estrelasHTML = '';
+                for(let i=0; i<estrelas; i++) { estrelasHTML += '<i class="fas fa-star"></i>'; }
+
+                const novoCard = document.createElement('div');
+                novoCard.className = 'review-card';
+                novoCard.style.animation = "modalFadeIn 0.5s";
+                novoCard.innerHTML = `
+                    <i class="fas fa-quote-right review-quote"></i>
+                    <div class="review-header">
+                        <span class="review-author">${nome}</span>
+                        <div class="stars">${estrelasHTML}</div>
+                    </div>
+                    <p class="review-text">"${texto}"</p>
+                `;
+
+                const container = document.getElementById('reviewsContainer');
+                if (container) container.insertBefore(novoCard, container.firstChild);
+
+                formAvaliacao.reset();
+                fecharModal('reviewModal');
+                alert('Obrigado! Sua avaliação foi publicada.');
+            });
+        }
+    </script>
 </body>
 </html>
