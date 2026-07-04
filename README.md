@@ -3,6 +3,8 @@ Status do Projeto Tecnologias
 
 Uma Landing Page de alta conversão desenvolvida para o setor de Climatização e Refrigeração. O projeto foca em uma experiência visual "Premium" (Dark Mode com Neon), transmitindo modernidade e confiança técnica.
 
+[![Deploys by Netlify](https://netlify.com/img/global/badges/netlify-color-bg.svg)](https://netlify.com)
+
 🚀 Funcionalidades Principais
 🎨 Design Neon & Dark: Estética moderna que destaca a tecnologia dos serviços.
 📱 Totalmente Responsivo: Menu Mobile e grid adaptável para celulares e tablets.
